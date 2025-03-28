@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TConstructorIngredient, TIngredient } from '@utils-types';
-import { randomUUID } from 'crypto';
+import { v4 as randomUUID } from 'uuid';
 
 type TBurgerConstructorState = {
   bun: TIngredient | null;
