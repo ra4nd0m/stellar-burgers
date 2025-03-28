@@ -91,6 +91,8 @@ export const userSlice = createSlice({
       })
       .addCase(getUser.rejected, (state, action) => {
         state.error = action.error;
+        state.isAuthenticated = false;
+        state.isAuthChecked = true;
       })
       .addCase(registerUser.pending, (state) => {
         state.registrationError = null;
