@@ -22,7 +22,9 @@ const initialState: TFeedsState = {
   }
 };
 
-const getFeeds = createAsyncThunk('feeds/get', async () => getFeedsApi());
+export const getFeeds = createAsyncThunk('feeds/get', async () =>
+  getFeedsApi()
+);
 
 export const feedsSlice = createSlice({
   name: 'feeds',
