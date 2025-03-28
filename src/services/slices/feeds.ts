@@ -56,5 +56,3 @@ export const {
   getFeedsOrdersSelector,
   getFeedsIsLoadingSelector
 } = feedsSlice.selectors;
-
-export const ingredientsReducer = feedsSlice.reducer;
