@@ -76,8 +76,8 @@ export const userSlice = createSlice({
     getUserSelector: (state) => state.user,
     getIsAuthCheckedSelector: (state) => state.isAuthChecked,
     getIsAuthenticatedSelector: (state) => state.isAuthenticated,
-    getRegistrationErrorSelector: (state) => state.registrationError,
-    getLoginErrorSelector: (state) => state.error
+    getRegistrationErrorSelector: (state) => state.registrationError?.message,
+    getLoginErrorSelector: (state) => state.error?.message
   },
   extraReducers: (builder) => {
     builder
