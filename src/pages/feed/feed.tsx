@@ -13,7 +13,6 @@ import { useDispatch } from './../../services/store';
 export const Feed: FC = () => {
   const dispatch = useDispatch();
   const orders: TOrder[] = useSelector(getFeedsOrdersSelector);
-  const feed = useSelector(getFeedSelector);
   useEffect(() => {
     dispatch(getFeeds());
   }, [dispatch]);
