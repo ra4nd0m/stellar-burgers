@@ -29,7 +29,7 @@ export const feedsSlice = createSlice({
   initialState,
   reducers: {},
   selectors: {
-    getFeedsSelector: (state) => state.feeds,
+    getFeedSelector: (state) => state.feeds,
     getFeedsOrdersSelector: (state) => state.feeds?.orders,
     getFeedsIsLoadingSelector: (state) => state.isLoading
   },
@@ -52,7 +52,7 @@ export const feedsSlice = createSlice({
 });
 
 export const {
-  getFeedsSelector,
+  getFeedSelector,
   getFeedsOrdersSelector,
   getFeedsIsLoadingSelector
 } = feedsSlice.selectors;
