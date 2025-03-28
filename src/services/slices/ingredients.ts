@@ -18,7 +18,7 @@ const initialState: TIngredientState = {
   ingredients: []
 };
 
-const getIngredients = createAsyncThunk(
+export const getIngredients = createAsyncThunk(
   'ingredients/get',
   async () => await getIngredientsApi()
 );

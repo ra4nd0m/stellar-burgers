@@ -12,7 +12,7 @@ import {
   SerializedError
 } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
-import { deleteCookie, setCookie } from 'src/utils/cookie';
+import { deleteCookie, setCookie } from './../../utils/cookie';
 
 type TUserState = {
   isAuthChecked: boolean;
@@ -33,7 +33,10 @@ const initialState: TUserState = {
   }
 };
 
-const getUser = createAsyncThunk('user/get', async () => await getUserApi());
+export const getUser = createAsyncThunk(
+  'user/get',
+  async () => await getUserApi()
+);
 
 export const registerUser = createAsyncThunk(
   'user/register',
