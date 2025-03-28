@@ -12,7 +12,7 @@ import { userSlice } from './slices/user';
 const rootReducer = {
   feeds: feedsSlice.reducer,
   ingredients: ingredientsSlice.reducer,
-  users: userSlice.reducer
+  user: userSlice.reducer
 };
 
 const store = configureStore({
