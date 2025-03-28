@@ -9,7 +9,7 @@ import {
   Register,
   ResetPassword
 } from '@pages';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { OrderInfo } from '../order-info';
 import { IngredientDetails } from '../ingredient-details';
 import { ProtectedRoute } from '../protected-route';
@@ -17,9 +17,19 @@ import { useEffect } from 'react';
 import { getUser } from './../../services/slices/user';
 import { getIngredients } from './../../services/slices/ingredients';
 import { useDispatch } from './../../services/store';
+import { resetOrderModal } from './../../services/slices/orders';
+import { Modal } from '../modal';
 
 export const AppBody = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+  const background = location.state?.background;
+  const navigate = useNavigate();
+
+  const closeModal = () => {
+    dispatch(resetOrderModal());
+    navigate(-1);
+  };
 
   useEffect(() => {
     dispatch(getUser());
@@ -27,7 +37,7 @@ export const AppBody = () => {
   }, [dispatch]);
   return (
     <>
-      <Routes>
+      <Routes location={background || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
         <Route path='/feed/:number' element={<OrderInfo />} />
@@ -90,6 +100,18 @@ export const AppBody = () => {
         />
         <Route path='*' element={<NotFound404 />} />
       </Routes>
+      {background && (
+        <Routes>
+          <Route
+            path='/ingredients/:id'
+            element={
+              <Modal title='Детали ингредиента' onClose={closeModal}>
+                <IngredientDetails />
+              </Modal>
+            }
+          />
+        </Routes>
+      )}
     </>
   );
 };
