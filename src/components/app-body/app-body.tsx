@@ -124,6 +124,18 @@ export const AppBody = () => {
           />
         </Routes>
       )}
+      {background && (
+        <Routes>
+          <Route
+            path='profile/orders/:number'
+            element={
+              <Modal title='Детали заказа' onClose={closeModal}>
+                <OrderInfo />
+              </Modal>
+            }
+          />
+        </Routes>
+      )}
     </>
   );
 };
